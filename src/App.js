@@ -1,23 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import {changeText} from './redux/action'
 
 function App() {
+  const text = useSelector(state => state.test);
+  const dispatch = useDispatch();
+  const onClick = e => {
+      e.preventDefault();
+      changeText(dispatch, 'dgfddf')
+
+
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+         {text}
+         <button onClick={onClick}></button>
       </header>
     </div>
   );
